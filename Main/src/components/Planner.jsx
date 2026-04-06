@@ -244,6 +244,7 @@ export default function Planner({ state, setState }) {
 
   // Check if a task is currently active
   const isCurrentTask = (timeStr) => {
+    if (!timeStr || typeof timeStr !== 'string' || !timeStr.includes(' - ')) return false;
     const [start, end] = timeStr.split(' - ');
     const currentTime = formatTime(currentDateTime);
     
